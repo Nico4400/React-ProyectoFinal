@@ -1,0 +1,22 @@
+
+.Cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .Volver {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .Volver a{
+    padding: 1vh;
+  }
+  
+  .Finalizar {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+  }

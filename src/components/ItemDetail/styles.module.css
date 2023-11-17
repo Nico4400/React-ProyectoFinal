@@ -1,0 +1,38 @@
+.Card {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Imagen {
+    margin-top: 10px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .Contador {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Precio {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  .Categoria,
+  .Marca,
+  .Descripcion {
+    margin-top: 10px;
+    color: #555;
+  }
+  
+  .Descripcion {
+    font-style: italic;
+  }

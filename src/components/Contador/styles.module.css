@@ -1,0 +1,26 @@
+.Contador {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+    color: #333;
+  }
+  
+.Controles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+    
+.Agregar {
+    margin-top: 10px;
+}
+  
+.FavBoton {
+    margin-top: 10px;
+}
+
+.Boton {    
+    border: 1px solid #000000;    
+    font-weight: bold;
+}

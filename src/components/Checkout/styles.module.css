@@ -1,0 +1,16 @@
+.Datos {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.Spin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.Order {
+    margin-top: 20px;
+}

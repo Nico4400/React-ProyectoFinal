@@ -1,0 +1,19 @@
+.Productos {
+    padding: 20px;
+    text-align: center;
+}
+
+.Spin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+/* Estilo adicional para el título (h1) del contenedor */
+.Productos h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: left
+}

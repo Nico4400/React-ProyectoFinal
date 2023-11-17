@@ -1,0 +1,24 @@
+.Container {
+    max-width: 400px;
+    margin: auto;
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.Label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.Input {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
