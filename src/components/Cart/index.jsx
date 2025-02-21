@@ -40,14 +40,16 @@ const Cart = ({id, producto, imagen, precio, stock, categoria, marca, descripcio
           <Button className={styles.Boton} type="primary" onClick={() => { eliminarItem(id), restar(cantidad) }}>Eliminar Item <CloseCircleOutlined /></Button>
       ]}
     >
-      <Link to={`/item/${id}`}>
-        <Meta className={styles.Titulo}         
-          title={producto || "No Disponible"}        
-        />
-      </Link>
-      <p className={styles.Stock}>Stock: {stock || "No Disponible"}</p>
-      <p className={styles.Cantidad}>Cantidad: {cantidad || "No Disponible"}</p>
-      <p className={styles.Precio}>$ {((precio*cantidad).toFixed(2)) || "No Disponible"}</p>            
+      <div className={styles.Body}>
+        <Link to={`/item/${id}`}>
+          <Meta className={styles.Titulo}         
+            title={producto || "No Disponible"}        
+          />
+        </Link>
+        <p className={styles.Stock}>Stock: {stock || "No Disponible"}</p>
+        <p className={styles.Cantidad}>Cantidad: {cantidad || "No Disponible"}</p>
+        <p className={styles.Precio}>$ {((precio*cantidad).toFixed(2)) || "No Disponible"}</p>
+      </div>            
     </Card>   
   )
 } 

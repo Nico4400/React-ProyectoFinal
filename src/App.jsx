@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom';
 
 import NavBar from './components/NavBar'
 import ItemListContainer from './components/ItemListContainer'
@@ -16,19 +16,19 @@ function App() {
   return (
     <div className="App">
       <CartComponentContext>
-      < CategoriasComponentContext> 
-        <BrowserRouter>
+      <CategoriasComponentContext> 
+        <HashRouter>
           <NavBar />            
           <Routes> 
             <Route exact path='/' element={<Home />} />                 
-            <Route exact path='/productos' element={<ItemListContainer greating={'Productos'} />} />
-            <Route exact path= '/category/:categoryId' element={<ItemListContainer greating={'Productos'}/>} />
+            <Route exact path='/productos' element={<ItemListContainer greeting={'Productos'} />} />
+            <Route exact path= '/category/:categoryId' element={<ItemListContainer greeting={'Productos'}/>} />
             <Route exact path='/item/:itemId' element={<ItemDetailContainer />} />
             <Route exact path='/cart' element={<CartContainer />} />
             <Route exact path='/checkout' element={<Checkout />} /> 
             <Route exact path='*' element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </CategoriasComponentContext>
       </CartComponentContext>
     </div>

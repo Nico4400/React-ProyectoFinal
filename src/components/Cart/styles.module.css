@@ -1,20 +1,35 @@
 .Card {    
+    width: 80%;
     margin: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly
+  }
+
+    /* Para tablets (máx. 1024px) -> 2 columnas */
+  @media (max-width: 768px) {
+    .Card {    
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
   }
   
   .Imagen {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     object-fit: contain;
-    margin-right: 10px;
+    /* margin-right: 10px; */
   }
   
   .Contador {
     width: 100px;
+  }
+
+  .Body{
+    width: 200px;
+    height: 100px;
   }
   
   .Card li{

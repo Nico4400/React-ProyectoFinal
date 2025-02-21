@@ -11,7 +11,7 @@ import { Spin } from 'antd';
 import styles from './styles.module.css'
 
 
-const ItemListContainer = ({ greating }) => {
+const ItemListContainer = ({ greeting }) => {
     
     const[productos, setProductos] = useState([])
     const[loading, setLoading] = useState(true)
@@ -46,7 +46,7 @@ const ItemListContainer = ({ greating }) => {
                 ) : (
                 <div className={styles.Productos}>
                     <h1>
-                        {greating} - {categoryId}                        
+                        {greeting} - {categoryId}                        
                     </h1>
                     <ItemList productos={productos} />                    
                 </div>  

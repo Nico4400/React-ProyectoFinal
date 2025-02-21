@@ -1,5 +1,5 @@
 import React from 'react'
-import { useContext } from 'react'
+import { useState, useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 
 import CartWidget from '../CartWidget'
@@ -9,22 +9,28 @@ import Logo from '../../assets/logoMarron.png'
 import { CategoriasContext } from '../../context/categoryContext';
 
 import { Button, Dropdown, Space } from 'antd';
-import { DownOutlined, HeartOutlined, HomeOutlined, UserOutlined, WhatsAppOutlined, GiftOutlined } from '@ant-design/icons';
+import { DownOutlined, HeartOutlined, HomeOutlined, UserOutlined, WhatsAppOutlined, GiftOutlined, MenuOutlined, CloseOutlined } from '@ant-design/icons';
 
 import styles from './styles.module.css'
 
 const NavBar = () => {
 
   const { categorias } = useContext(CategoriasContext)
+  const [menuOpen, setMenuOpen] = useState(false); // Estado para abrir/cerrar menú
 
-  // traigo el array de categorias
-  const arrayDeCategorias = categorias
-  const items = arrayDeCategorias.map((categorias, index) => ({
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  // Mapeo de categorías
+  const items = categorias.map((categoria, index) => ({
     key: `${index}`,
-    label: (     
-      <NavLink key={index} to={`/category/${categorias}`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'} >{categorias}</NavLink>      
+    label: (
+      <NavLink key={index} to={`/category/${categoria}`} className={({ isActive }) => (isActive ? 'ActiveOption' : 'Option')}>
+        {categoria}
+      </NavLink>
     ),
-  }))
+  }));
 
   return (
     <div className={styles.NavBar}>
@@ -34,7 +40,12 @@ const NavBar = () => {
           </Link>
         </ul>
 
-        <ul className={styles.secciones}>
+        {/* Botón hamburguesa para móviles */}
+        <button className={styles.MenuToggle} onClick={toggleMenu}>
+            {menuOpen ? <CloseOutlined /> : <MenuOutlined />}
+        </button>
+
+        <ul className={`${styles.secciones} ${menuOpen ? styles.MenuOpen : ''}`}>
           <Link to='/'>
             <Button type="primary">Inicio <HomeOutlined /></Button>
           </Link>
@@ -53,9 +64,15 @@ const NavBar = () => {
               </Space>
             </a>
           </Dropdown>
-          <Button type="primary">Favoritos <HeartOutlined /></Button> 
-          <Button type="primary">Usuario <UserOutlined /></Button>
-          <Button type="primary">Contacto <WhatsAppOutlined /></Button>            
+          <a href="">
+            <Button type="primary">Favoritos <HeartOutlined /></Button> 
+          </a>
+          <a href="">
+            <Button type="primary">Usuario <UserOutlined /></Button>
+          </a>
+          <a href="">
+            <Button type="primary">Contacto <WhatsAppOutlined /></Button>     
+          </a>       
         </ul>
 
         <ul className={styles.Personal}>          

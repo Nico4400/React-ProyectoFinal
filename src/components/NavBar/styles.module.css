@@ -1,70 +1,82 @@
-/* Estilos para el contenedor principal del navbar
+/* Navbar base */
 .NavBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;    
-    background-color:rgb(39, 36, 28);
-    color: #fff;
-    padding: 10px 20px;
-  }
-
-  .Logo{
-    display: flex;
-    padding: 0;    
-  }
-
-  .Personal{
-    display: flex;
-    justify-content: space-around;
-    padding: 0;
-  }
-
-  .Personal div{
-    margin: 0 2px 0 2px;
-  }
-
-  .secciones{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0;
-  }
-
-  .secciones button{
-    margin: 5px;
-  } */
-  
-.NavBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #8b7070;
-    padding: 10px 20px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #8b7070db;
+  height: 100px; /* Ajusta según el diseño deseado */
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  position: fixed; /* Mantiene el navbar fijo arriba */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
+/* Agregar margen superior al contenido principal */
+.MainContent {
+  margin-top: 80px; /* Debe ser mayor o igual a la altura del navbar */
+}
+
+/* Logo */
 .Logo {
-    display: flex;
-    align-items: center;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 .Logo img {
-    margin-right: 10px;
-    border-radius: 50px;
+  /* margin-right: 10px; */
+  border-radius: 50px;
 }
 
+/* Secciones principales */
 .secciones {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
-.secciones a {
-    text-decoration: none;
-    color: #333;
+/* Botón hamburguesa */
+.MenuToggle {
+  display: none; /* Oculto en pantallas grandes */
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
 }
 
+/* Estilos del menú en móviles */
+@media (max-width: 768px) {
+  .MenuToggle {
+    display: block; /* Mostrar en móviles */
+  }
+
+  .secciones {
+    display: none; /* Ocultar por defecto */
+    flex-direction: column;
+    position: absolute;
+    top: 80px; /* Igual a la altura del navbar */
+    left: 0;
+    width: 100%;
+    background: #8b7070f3;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .MenuOpen {
+    display: flex; /* Mostrar cuando está abierto */
+  }
+}
+
+/* Área de usuario y carrito */
 .Personal {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  padding: 0;
+  gap: 10px;
+  align-items: center;
 }
+
+
 
