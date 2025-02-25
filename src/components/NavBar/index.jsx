@@ -64,9 +64,9 @@ const NavBar = () => {
               </Space>
             </a>
           </Dropdown>
-          <a href="">
-            <Button type="primary">Favoritos <HeartOutlined /></Button> 
-          </a>
+          <NavLink to='/favorites'>
+            <Button  type="primary">Favoritos <HeartOutlined /></Button> 
+          </NavLink>
           <a href="">
             <Button type="primary">Usuario <UserOutlined /></Button>
           </a>

@@ -1,0 +1,57 @@
+.Favorites {
+    text-align: center;
+    margin: 20px;
+    margin-top: 150px;
+  }
+
+  .GridContainer {    
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas por defecto */
+  }
+
+    /* Para tablets (máx. 1024px) -> 2 columnas */
+  @media (max-width: 768px) {
+    .GridContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Para celulares (máx. 600px) -> 1 columna */
+  @media (max-width: 600px) {
+    .GridContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  .Volver {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .Volver a{
+    padding: 1vh;
+  }
+  
+  .Finalizar {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  /* Diseño responsive para pantallas pequeñas */
+  @media (max-width: 600px) {
+    .Finalizar {
+        flex-direction: column; /* Los botones se apilan en móviles */
+        gap: 10px; /* Reduce el espacio entre botones */
+        width: 100%; /* Ocupar todo el ancho disponible */
+        align-items: center; /* Asegura que los botones estén alineados al centro */
+    }
+
+    .Finalizar a, 
+    .Finalizar button {
+        width: 90%; /* Hace que los botones ocupen casi todo el ancho en móviles */
+        text-align: center;
+    }
+  }

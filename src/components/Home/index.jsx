@@ -44,7 +44,7 @@ const Home = () => {
             </div>
 
             <h2 className={styles.Descripcion}>
-                Aqui encontraras los productos que buscas con la mejor la mejor calidad y al menor precio
+                Aqui encontraras los productos que buscas con la mejor calidad y al menor precio
             </h2> 
             <NavLink to='/productos'>
                 <Button type="primary">Productos <GiftOutlined /></Button> 

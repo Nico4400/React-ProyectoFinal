@@ -11,14 +11,14 @@ import styles from './styles.module.css'
 
 const { Meta } = Card;
 
-const Items = ({ id, producto, imagen, precio, categoria }) => {
-  const { favorites, agregarFavorito, eliminarFavorito } = useContext(FavoritesContext);
+const Favorites = ({id, producto, imagen, precio, categoria}) => {
 
-  // Verificar si el producto ya está en favoritos
+  const { agregarFavorito, eliminarFavorito, favorites } = useContext(FavoritesContext);
+
   const esFavorito = favorites.some((fav) => fav.id === id);
 
-// const Items = ({id, producto, imagen, precio, categoria}) => (
   return (
+
     <Card className={styles.ProductoCard} // Nueva clase CSS para uniformar las tarjetas      
       cover={
         <img className={styles.ProductoImg}
@@ -43,4 +43,5 @@ const Items = ({ id, producto, imagen, precio, categoria }) => {
     </Card> 
   );
 };
-export default Items;
+
+export default Favorites;
