@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { CloseCircleOutlined } from '@ant-design/icons';
+import { HeartFilled, HeartOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { Card, Button } from 'antd';
 
 import Contador from '../Contador';
 import { CartContext } from '../../context/cartContext';
+import { FavoritesContext } from '../../context/favoritesContext';
 
 import styles from './styles.module.css'
 
@@ -14,6 +15,8 @@ const { Meta } = Card;
 const Cart = ({id, producto, imagen, precio, stock, categoria, marca, descripcion, cantidad }) => {
 
   const { actualizarCarrito, eliminarItem, restar, sumar } = useContext(CartContext)
+  const { favorites, agregarFavorito, eliminarFavorito } = useContext(FavoritesContext);
+  const esFavorito = favorites.some((fav) => fav.id === id);
 
 
   return(
@@ -28,6 +31,21 @@ const Cart = ({id, producto, imagen, precio, stock, categoria, marca, descripcio
         </Link>
       }
       actions={[
+        <>
+          <Button className={styles.BtnFav}
+            key="favorite"
+            onClick={() => {
+              console.log(`Es favorito antes: ${esFavorito}`);
+              if (esFavorito) {
+                eliminarFavorito( id );
+              } else {
+                agregarFavorito({ id, producto, imagen, precio, categoria });
+              }
+            }}
+          >
+            {esFavorito ? <HeartFilled style={{ color: "red" }} /> : <HeartOutlined />}
+          </Button>
+
           <Contador className={styles.Contador} initial={1} stock={stock} onAdd={(contador) => {
             console.log(`Cantidad agregada ${contador}`)
             const nuevaCantidad = cantidad + contador
@@ -36,10 +54,16 @@ const Cart = ({id, producto, imagen, precio, stock, categoria, marca, descripcio
                 actualizarCarrito({id, producto, imagen, precio, stock, categoria, marca, descripcion, cantidad}, nuevaCantidad)
                 ) :
                 console.log(`No hay cantidades suficientes, quedan ${stock - cantidad}`) }
-          }}/>,
-          <Button className={styles.Boton} type="primary" onClick={() => { eliminarItem(id), restar(cantidad) }}>Eliminar Item <CloseCircleOutlined /></Button>
+          }}/>
+
+          <div className={styles.Btn}>     
+            <Button className={styles.BtnDel} type="primary" onClick={() => { eliminarItem(id), restar(cantidad) }}>Eliminar Item <CloseCircleOutlined /></Button>
+          </div>
+        </>
+
       ]}
     >
+
       <div className={styles.Body}>
         <Link to={`/item/${id}`}>
           <Meta className={styles.Titulo}         

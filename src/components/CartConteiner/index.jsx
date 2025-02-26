@@ -25,7 +25,7 @@ const CartContainer = () => {
             </> :       
             <>          
                 {cart.map(prod => <Cart key={prod.id} {...prod} />)}
-                <h2>Monto Total: {precioTotalCarrito.toFixed(2)}</h2>
+                <h2 className={styles.TotalPrice}>Monto Total: {precioTotalCarrito.toFixed(2)}</h2>
                 <div className={styles.Finalizar}>
                     <NavLink to='/productos'><Button type="primary">Productos <GiftOutlined /></Button></NavLink>
                     <NavLink to='/checkout'><Button type="primary">Finalizar Compra <CheckOutlined /></Button></NavLink>

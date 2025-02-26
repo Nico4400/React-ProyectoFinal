@@ -3,7 +3,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import Contador from '../Contador';
 import { CartContext } from '../../context/cartContext';
 
-import { Card } from 'antd';
+import { Card, Button } from 'antd';
+
+import { FavoritesContext } from '../../context/favoritesContext';
+import { HeartFilled, HeartOutlined } from "@ant-design/icons";
 
 import styles from './styles.module.css'
 
@@ -13,7 +16,8 @@ const { Meta } = Card;
 const ItemDetail = ({id, producto, imagen, precio, stock, categoria, marca, descripcion}) => {
 
   const {cantidadCarrito, sumar, agregarItem, estaEnCarrito, cart, indexCarrito, actualizarCarrito } = useContext(CartContext)
- 
+  const { favorites, agregarFavorito, eliminarFavorito } = useContext(FavoritesContext);
+  const esFavorito = favorites.some((fav) => fav.id === id);
 
   return (
     <Card className={styles.Card}
@@ -25,6 +29,7 @@ const ItemDetail = ({id, producto, imagen, precio, stock, categoria, marca, desc
         />
       }
       actions={[
+        <>
           <Contador className={styles.Contador} initial={1} stock={stock} onAdd={(contador) => {
             console.log(`Cantidad agregada ${contador}`)       
 
@@ -49,6 +54,21 @@ const ItemDetail = ({id, producto, imagen, precio, stock, categoria, marca, desc
               }
             }
           }}/>
+
+          <Button className={styles.Btn}
+            key="favorite"
+            onClick={() => {
+              if (esFavorito) {
+                eliminarFavorito({ id, producto, imagen, precio, categoria });
+              } else {
+                agregarFavorito({ id, producto, imagen, precio, categoria });
+              }
+            }}
+          >
+            {esFavorito ? <HeartFilled style={{ color: "red" }} /> : <HeartOutlined />}
+          </Button>
+        </>
+                    
       ]}
     >
       <p className={styles.Precio}>$ {precio || "No Disponible"}</p>    

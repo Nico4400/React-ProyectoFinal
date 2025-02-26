@@ -1,26 +1,36 @@
 .Card {    
-    width: 80%;
+    width: 70%;
     margin: 11px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly
+    justify-content: space-evenly;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra más fuerte */
   }
 
     /* Para tablets (máx. 1024px) -> 2 columnas */
   @media (max-width: 768px) {
-    .Card {    
+    .Card {  
+      width: 80%;  
       display: flex;
       flex-direction: column;
       text-align: center;
     }
+  }
+
+  .Btn {
+    margin-top: 10px;
+  }
+
+  .BtnFav {
+    margin-bottom: 10px;
   }
   
   .Imagen {
     width: 200px;
     height: 200px;
     object-fit: contain;
-    /* margin-right: 10px; */
   }
   
   .Contador {
@@ -32,6 +42,10 @@
     height: 100px;
   }
   
+  ul {    
+    border-top: none;
+  }
+
   .Card li{
     display: flex;
     align-items: center;

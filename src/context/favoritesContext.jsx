@@ -12,6 +12,7 @@ const FavoritesComponentContext = ({ children }) => {
   const agregarFavorito = (producto) => {
     // Verificar si ya está en favoritos
     const existe = favorites.some((fav) => fav.id === producto.id);
+    console.log("Producto a agregar:", producto);
     if (!existe) {
       setFavorites([...favorites, producto]);
     }
@@ -20,6 +21,7 @@ const FavoritesComponentContext = ({ children }) => {
   // Eliminar un producto de favoritos
   const eliminarFavorito = (id) => {
     const nuevosFavoritos = favorites.filter((producto) => producto.id !== id);
+    console.log("Eliminando favorito con ID:", id);
     setFavorites(nuevosFavoritos);
   };
 
