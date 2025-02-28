@@ -57,7 +57,7 @@ const Checkout = () => {
     }
     if(orderId) {
         return (
-            <div className={styles.Order}>
+            <div>
                 <Order orderId={orderId} />            
             </div>
         )   
@@ -65,7 +65,7 @@ const Checkout = () => {
         
     return (
         <div className={styles.Datos}>
-            <h2>Datos Personales</h2>
+            <h2>Complete sus Datos Personales para Finalizar su Pedido</h2>
             <CheckoutForm onConfirm={createOrder}/>
         </div>
     )

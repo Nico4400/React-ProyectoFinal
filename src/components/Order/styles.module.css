@@ -1,37 +1,26 @@
 .Order {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+  max-width: 600px;
+  width: 90%; /* Se adapta a diferentes pantallas */
+  margin: 150px auto 0 auto; /* Centrado en todas las pantallas */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: center;
+  box-sizing: border-box; /* Evita que el padding empuje el contenido fuera */
+}
+
+/* Ajuste en móviles */
+@media (max-width: 600px) {
+  .Order {
+      width: 90%;
+      max-width: 100%; /* No se expande más allá de la pantalla */
+      margin: 130px auto 0 auto; /* Se mantiene centrado */
+      padding: 15px;
   }
-  
+
   .Order h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #333;
+      font-size: 20px;
   }
-  
-  .Order h2 {
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #555;
-  }
-  
-  .Order ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .Order li {
-    margin-bottom: 15px;
-  }
-  
-  .Order p {
-    margin: 0;
-    font-size: 16px;
-    color: #777;
-  }
+}

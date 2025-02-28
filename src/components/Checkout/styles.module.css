@@ -1,16 +1,78 @@
-.Datos {
+/* Estilos generales */
+.Datos, .Spin {
     max-width: 800px;
+    width: 90%; /* Para que no quede fijo en pantallas pequeñas */
     margin: auto;
     padding: 20px;
+    margin-top: 100px;
+    text-align: center;
 }
 
-.Spin {
+/* Ajustes específicos para el formulario */
+.Container {
+    max-width: 400px;
+    width: 90%; /* Se ajusta a móviles */
+    margin: auto;
+}
+
+.Form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f9f9f9;
 }
 
-.Order {
-    margin-top: 20px;
+/* Inputs adaptables */
+.Input {
+    padding: 10px;
+    width: 100%; /* Se expanden según el contenedor */
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botón con espacio adecuado */
+.Boton {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.Boton button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #1890ff;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.Boton button:hover {
+    background-color: #0073e6;
+}
+
+/* Adaptabilidad en móviles */
+@media (max-width: 768px) {
+    .Datos, .Spin {
+        width: 90%; /* Se ajusta mejor en móviles */
+        margin-top: 80px;
+    }
+
+    .Form {
+        padding: 15px;
+    }
+
+    .Input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .Boton button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
 }
