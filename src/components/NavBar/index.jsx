@@ -1,6 +1,6 @@
 import React from 'react'
-import { useState, useContext } from 'react'
-import { Link, NavLink } from 'react-router-dom';
+import { useState, useContext, useEffect } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 import CartWidget from '../CartWidget'
 import Usuario from '../Usuario';
@@ -17,6 +17,13 @@ const NavBar = () => {
 
   const { categorias } = useContext(CategoriasContext)
   const [menuOpen, setMenuOpen] = useState(false); // Estado para abrir/cerrar menú
+  const location = useLocation(); // <-- Obtiene la ruta actual
+
+  // Cierra el menú cuando la ruta cambia
+  useEffect(() => {
+    setMenuOpen(false);
+    window.scrollTo(0, 0); // <-- Hace que la página vuelva arriba
+  }, [location.pathname]); // <-- Se ejecuta cuando cambia la ruta
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
