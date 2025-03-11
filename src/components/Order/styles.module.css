@@ -1,14 +1,17 @@
 .Order {
   max-width: 600px;
   width: 90%; /* Se adapta a diferentes pantallas */
-  margin: 150px auto 0 auto; /* Centrado en todas las pantallas */
+  margin: 150px auto 50px auto; /* Centrado en todas las pantallas */
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
   text-align: center;
   box-sizing: border-box; /* Evita que el padding empuje el contenido fuera */
+  gap: 15px;
 }
 
 /* Ajuste en móviles */
@@ -16,8 +19,9 @@
   .Order {
       width: 90%;
       max-width: 100%; /* No se expande más allá de la pantalla */
-      margin: 130px auto 0 auto; /* Se mantiene centrado */
+      margin: 130px auto 30px auto; /* Se mantiene centrado */
       padding: 15px;
+      gap: 10px;
   }
 
   .Order h1 {
